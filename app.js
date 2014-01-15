@@ -15,6 +15,7 @@ var express = require('express')
   , expressValidator = require('express-validator')
   , mailer = require('express-mailer')
   , config = require('./config')
+   , _ = require('underscore')
   , app = express();
 
 app.engine('ejs', engine);
@@ -75,7 +76,7 @@ if ('development' == app.get('env')) {
 // Database Connection
 
 if ('development' == app.get('env')) {
-  mongoose.connect('mongodb://localhost/nodedemo');
+  mongoose.connect('mongodb://heroku_app21282738:8l5d2s090q43htb1irkqr75lth@ds027419.mongolab.com:27419/heroku_app21282738'); 
 } else {
   // insert db connection for production
 }
@@ -87,8 +88,13 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(id, done) {
+  console.log('deserializeUser START: ' , id)
   User.findById(id, function(err, user) {
-    done(err, user);
+    console.log('deserializeUser  END:  ', user.id)
+    _.delay(function(){ //wait 1 s to fuckup
+            done(err, user);
+    }, 5000);
+    
   });
 });
 
