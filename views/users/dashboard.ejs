@@ -4,8 +4,17 @@ Welcome to your dashboard.
 <br>
 <strong><%=  user %></strong>
 
+<pre>  <%-  JSON.stringify(user, null, 4)  %></pre>
+
+
+   <%=  locals.user  %>
+   
+   
 <%
 _.each(function(){    %>
   SLLLLOOOWW
-       <strong><%=  user %></strong> SLOWLY RENDERED!!!
+       <strong><%=  u  %></strong> 
+       
+     
+       SLOWLY RENDERED!!!
 <%}, 5000); %>

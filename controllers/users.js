@@ -9,6 +9,7 @@ exports.login = function(req, res){
 
 // Get dashboard
 exports.dashboard = function(req, res){
+  console.log(res.locals.user);
   res.render('users/dashboard');
 }
 

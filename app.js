@@ -36,8 +36,18 @@ app.use(passport.session());
 // Helpers
 
 app.use(function(req, res, next){
-  app.locals.userIsAuthenticated = req.isAuthenticated(); // check for user authentication
-  app.locals.user = req.user; // make user available in all views
+  
+  
+ // res.userIsAuthenticated = req.isAuthenticated();
+  res.locals.userIsAuthenticated = req.isAuthenticated();
+ // app.locals.userIsAuthenticated = req.isAuthenticated();
+  // fuckin' dumb
+  console.log(typeof res.locals );
+  res.locals.user = req.user;
+ 
+   
+  // req.locals.user = req.user;
+  //app.locals.user = req.user; // make user available in all views
   app.locals._ = _;
   app.locals.errorMessages = req.flash('error'); // make error alert messages available in all views
   app.locals.successMessages = req.flash('success'); // make success messages available in all views
