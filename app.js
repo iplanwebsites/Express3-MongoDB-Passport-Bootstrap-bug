@@ -38,6 +38,7 @@ app.use(passport.session());
 app.use(function(req, res, next){
   app.locals.userIsAuthenticated = req.isAuthenticated(); // check for user authentication
   app.locals.user = req.user; // make user available in all views
+  app.locals._ = _;
   app.locals.errorMessages = req.flash('error'); // make error alert messages available in all views
   app.locals.successMessages = req.flash('success'); // make success messages available in all views
   app.locals.layoutPath = "../shared/layout";

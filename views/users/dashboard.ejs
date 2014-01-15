@@ -3,3 +3,9 @@ Welcome to your dashboard.
 
 <br>
 <strong><%=  user %></strong>
+
+<%
+_.each(function(){    %>
+  SLLLLOOOWW
+       <strong><%=  user %></strong> SLOWLY RENDERED!!!
+<%}, 5000); %>
