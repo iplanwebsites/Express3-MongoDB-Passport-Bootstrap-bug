@@ -48,10 +48,10 @@ app.use(function(req, res, next){
    
   // req.locals.user = req.user;
   //app.locals.user = req.user; // make user available in all views
-  app.locals._ = _;
-  app.locals.errorMessages = req.flash('error'); // make error alert messages available in all views
-  app.locals.successMessages = req.flash('success'); // make success messages available in all views
-  app.locals.layoutPath = "../shared/layout";
+  res.locals._ = _;
+  res.locals.layoutPath = "../shared/layout"; 
+  res.locals.errorMessages = req.flash('error'); // make error alert messages available in all views
+  res.locals.successMessages = req.flash('success'); // make success messages available in all views
   next();
 });
 
