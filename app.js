@@ -43,8 +43,10 @@ app.use(function(req, res, next){
  // app.locals.userIsAuthenticated = req.isAuthenticated();
   // fuckin' dumb
   console.log(typeof res.locals );
+  if(app.locals) app.locals.user = null; //nullify just in case it's set somewhere 
+  if(req.locals) req.locals.user = null; 
   res.locals.user = req.user;
- 
+  
    
   // req.locals.user = req.user;
   //app.locals.user = req.user; // make user available in all views
